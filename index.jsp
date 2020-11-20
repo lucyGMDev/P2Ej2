@@ -10,7 +10,7 @@
 
     </head>
     <body>
-        <h1>Este es el INDEX</h1>
+        <h1>Bienvenido</h1>
         <%
             String message = request.getParameter("message");
             if(message!=""){
@@ -18,6 +18,10 @@
             <p><%= message %></p>
             
         <%
+
+
+
+
             }
             if(customerBean!=null && !customerBean.getEmail().equals("")){
         %>
@@ -31,6 +35,9 @@
         <%
             }
         %>
+
+          <input type="button" onclick="location.href='mvc/view/loginView.jsp';" value="Iniciar sesión" />
+          <input type="button" onclick="location.href='mvc/view/signUpView.jsp';" value="Registrarse" />
         
     </body>
 </html>
