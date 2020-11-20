@@ -16,11 +16,11 @@
     <body>
 
         <form action="../control/loginController.jsp" method="post">
-        	<label for="email">Email</label>
-            <input type="text" name="email" size="30" required>
+        	<label for="Email">Email</label>
+            <input type="text" name="Email" size="50" required>
             <br>
             <label for="password">Contraseña</label>
-            <input type="password" name="password" size="30" required>
+            <input type="password" name="password" size="50" required>
      		<br> <br>
             <input type="submit" value="Iniciar sesión">   
           
