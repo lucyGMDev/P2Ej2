@@ -14,29 +14,29 @@
     <body>
 
         <form action="../control/signUpController.jsp" method="post">
-        	<label for="email">Email</label>
-            <input type="text" name="email" size="30" required>
+        	<label for="Email">Email</label>
+            <input type="text" name="Email" size="50" required>
             <label for="password">Contraseña</label>
-            <input type="password" name="password" size="30" required>
+            <input type="password" name="password" size="50" required>
             <label for="again_password">Repita la contraseña</label>
-            <input type="password" name="again_password" size="30" required>
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" size="30" required>
-            <label for="apellidos">Apellidos</label>
-            <input type="text" name="apellidos" size="30" required>
-            <label for="birthdate">Fecha de nacimiento</label>
-            <input type="date" name="birthdate" required>
+            <input type="password" name="again_password" size="50" required>
+            <label for="Nombre">Nombre</label>
+            <input type="text" name="Nombre" size="30" required>
+            <label for="Apellidos">Apellidos</label>
+            <input type="text" name="Apellidos" size="100" required>
+            <label for="Fecha_Nacimiento">Fecha de nacimiento</label>
+            <input type="date" name="Fecha_Nacimiento" required>
             <p> Intereses </p>
-     		    <label><input type="checkbox" name="interes" value="first_checkbox"> Lectura</label>
-     		    <label><input type="checkbox" name="interes" value="first_checkbox"> Cine</label>
-     		    <label><input type="checkbox" name="interes" value="first_checkbox"> Deportes</label>
-     		    <label><input type="checkbox" name="interes" value="first_checkbox"> Videojuegos</label>
-     		    <label><input type="checkbox" name="interes" value="first_checkbox"> Música</label>
-     		    <label><input type="checkbox" name="interes" value="first_checkbox"> Series</label>
-     		    <label><input type="checkbox" name="interes" value="first_checkbox"> Programación</label>
-     		    <label><input type="checkbox" name="interes" value="first_checkbox"> Fotografía</label>
-     		    <label><input type="checkbox" name="interes" value="first_checkbox"> Pintura</label>
-     		    <label><input type="checkbox" name="interes" value="first_checkbox"> Baile</label>
+     		    <label><input type="checkbox" name="interes" value="1"> Lectura</label>
+     		    <label><input type="checkbox" name="interes" value="2"> Cine</label>
+     		    <label><input type="checkbox" name="interes" value="3"> Deportes</label>
+     		    <label><input type="checkbox" name="interes" value="4"> Videojuegos</label>
+     		    <label><input type="checkbox" name="interes" value="5"> Música</label>
+     		    <label><input type="checkbox" name="interes" value="6"> Series</label>
+     		    <label><input type="checkbox" name="interes" value="7"> Programación</label>
+     		    <label><input type="checkbox" name="interes" value="8"> Fotografía</label>
+     		    <label><input type="checkbox" name="interes" value="9"> Pintura</label>
+     		    <label><input type="checkbox" name="interes" value="10"> Baile</label>
             
      		<br> <br>
             <input type="submit" value="Registrarse">   
