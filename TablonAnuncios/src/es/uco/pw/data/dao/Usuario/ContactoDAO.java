@@ -16,12 +16,16 @@ import es.uco.pw.business.DTO.DTOUsuario.ContactoDTO;
 import es.uco.pw.business.Usuario.Contacto;
 
 public class ContactoDAO extends DAO {
+
+    public ContactoDAO(String sqlPropertiesPath){
+        super(sqlPropertiesPath);
+    }
     public int InsertarContacto(ContactoDTO contact){
         int status=0;
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("insertar.contacto"));
             ps.setString(1, contact.getEmail());
@@ -51,7 +55,7 @@ public class ContactoDAO extends DAO {
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps=conect.prepareStatement(sqlProp.getProperty("borrar.contacto"));
             ps.setString(1, contact.getEmail());
@@ -68,7 +72,7 @@ public class ContactoDAO extends DAO {
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps= conect.prepareStatement(sqlProp.getProperty("modificar.contacto"));
             ps.setString(1, contact.getName());
@@ -100,7 +104,7 @@ public class ContactoDAO extends DAO {
             Connection conect = getConection();
             
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("getById.contacto"));
             ps.setString(1, email);
@@ -137,7 +141,8 @@ public class ContactoDAO extends DAO {
             Connection conect = getConection();
             
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+          
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("getById.contacto"));
             ps.setString(1, email);
@@ -152,6 +157,32 @@ public class ContactoDAO extends DAO {
                 ArrayList<String>temas=new ArrayList<String>(Arrays.asList(_intereses.split(",")));
                 ret=new Contacto(_email, _nombre, _apellidos, _fechaNacimiento, temas);
                 
+            }
+            
+           
+        }catch(Exception e){
+            System.out.println(e);
+        }
+
+        return ret;
+    }
+
+    public String ObtenerPasswordUsuario(String email){
+        String ret ="";
+        try{
+            
+            Connection conect = getConection();
+            
+            Properties sqlProp = new Properties();
+          
+            InputStream is = new FileInputStream(sqlPropertiesPath);
+            sqlProp.load(is);
+            PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("obtenerContraseña.Usuario"));
+            ps.setString(1, email);
+            ResultSet rs=ps.executeQuery();
+                 
+            while(rs.next()){
+                ret=rs.getString(1);                
             }
             
            

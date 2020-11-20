@@ -6,8 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -25,7 +23,9 @@ import es.uco.pw.data.dao.common.DAO;
 
 public class AnuncioDAO extends DAO{
    
-   
+    public AnuncioDAO(String sqlPropertiesPath){
+        super(sqlPropertiesPath);
+    }
     public int GetMaxID(){
         int maxID=-1;
         Statement stmt=null;
@@ -33,7 +33,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             
             stmt=conect.createStatement();
@@ -58,7 +58,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is); 
             PreparedStatement ps= conect.prepareStatement(sqlProp.getProperty("insertar.AnuncioTematico"));
             ps.setString(1, anuncio.getTipoAnuncio().toString());
@@ -103,7 +103,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("insertar.AnuncioGeneral"));
             ps.setString(1, anuncio.getTipoAnuncio().toString());
@@ -141,7 +141,7 @@ public class AnuncioDAO extends DAO{
             
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("insertar.AnuncioFlash"));
             ps.setString(1, anuncio.getTipoAnuncio().toString());
@@ -178,7 +178,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("insertar.AnuncioIndividualizado"));
             ps.setString(1, anuncio.getTipoAnuncio().toString());
@@ -211,7 +211,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("getByEmailPropietario.Anuncio"));
             ps.setString(1, email);
@@ -249,7 +249,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is); 
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("borrar.Destinatario"));
             ps.setInt(1, id);
@@ -264,7 +264,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is); 
             BorrarAnuncioDestinatarios(id);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("borrarId.Anuncio"));
@@ -282,7 +282,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("getAll.Anuncio"));
             ResultSet rs = ps.executeQuery();
@@ -318,7 +318,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("obtenerById.Destinatario"));
             ps.setInt(1, id);
@@ -338,7 +338,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("archivarId.Anuncio"));
             ps.setInt(1, id);
@@ -356,7 +356,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("getById.Anuncio"));
             ps.setInt(1, id);
@@ -392,7 +392,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("modificar.AnuncioGeneral"));
             ps.setString(1, anuncioDTO.getTitulo());
@@ -422,7 +422,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("modificar.AnuncioIndividualizado"));
             ps.setString(1, anuncioDTO.getTitulo());
@@ -452,7 +452,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("modificar.AnuncioTematico"));
             ps.setString(1, anuncioDTO.getTitulo());
@@ -496,7 +496,7 @@ public class AnuncioDAO extends DAO{
         try{
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("modificar.AnuncioFlash"));
             ps.setString(1, anuncioDTO.getTitulo());

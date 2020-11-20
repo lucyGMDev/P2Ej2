@@ -12,13 +12,16 @@ import es.uco.pw.data.dao.common.DAO;
 
 public class InteresesDAO extends DAO {
 
+    public InteresesDAO(String sqlPropertiesPath){
+        super(sqlPropertiesPath);
+    }
     public Hashtable<Integer, String> DevolverIntereses() {
         Hashtable<Integer, String> ret = new Hashtable<Integer, String>();
 
         try {
             Connection conect = getConection();
             Properties sqlProp = new Properties();
-            InputStream is = new FileInputStream("sql.properties");
+            InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("mostrar.Intereses"));
             ResultSet result = ps.executeQuery();
