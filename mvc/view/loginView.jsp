@@ -19,7 +19,7 @@
         	<label for="Email">Email</label>
             <input type="text" name="Email" size="50" required>
             <br>
-            <label for="password">Contraseña</label>
+            <label for="password">Contrase&ntilde;a</label>
             <input type="password" name="password" size="50" required>
      		<br> <br>
             <input type="submit" value="Iniciar sesión">   
