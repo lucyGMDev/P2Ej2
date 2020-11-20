@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Página de registro</title>
+        <title>P&aacute;gina de registro</title>
         <meta charset="UTF-8"/>
         <style>
             label
@@ -16,9 +16,9 @@
         <form action="../control/signUpController.jsp" method="post">
         	<label for="Email">Email</label>
             <input type="text" name="Email" size="50" required>
-            <label for="password">Contraseña</label>
+            <label for="password">Contrase&ntilde;a</label>
             <input type="password" name="password" size="50" required>
-            <label for="again_password">Repita la contraseña</label>
+            <label for="again_password">Repita la contrase&ntilde;a</label>
             <input type="password" name="again_password" size="50" required>
             <label for="Nombre">Nombre</label>
             <input type="text" name="Nombre" size="30" required>
@@ -31,10 +31,10 @@
      		    <label><input type="checkbox" name="interes" value="Cine"> Cine</label>
      		    <label><input type="checkbox" name="interes" value="Deportes"> Deportes</label>
      		    <label><input type="checkbox" name="interes" value="Videojuegos"> Videojuegos</label>
-     		    <label><input type="checkbox" name="interes" value="Música"> Música</label>
+     		    <label><input type="checkbox" name="interes" value="Música"> M&uacute;sica</label>
      		    <label><input type="checkbox" name="interes" value="Series"> Series</label>
-     		    <label><input type="checkbox" name="interes" value="Programación"> Programación</label>
-     		    <label><input type="checkbox" name="interes" value="Fotografía"> Fotografía</label>
+     		    <label><input type="checkbox" name="interes" value="Programación"> Programaci&oacute;n</label>
+     		    <label><input type="checkbox" name="interes" value="Fotografía"> Fotograf&iacute;a</label>
      		    <label><input type="checkbox" name="interes" value="Pintura"> Pintura</label>
      		    <label><input type="checkbox" name="interes" value="Baile"> Baile</label>
             
