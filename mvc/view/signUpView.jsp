@@ -27,16 +27,16 @@
             <label for="Fecha_Nacimiento">Fecha de nacimiento</label>
             <input type="date" name="Fecha_Nacimiento" required>
             <p> Intereses </p>
-     		    <label><input type="checkbox" name="interes" value="1"> Lectura</label>
-     		    <label><input type="checkbox" name="interes" value="2"> Cine</label>
-     		    <label><input type="checkbox" name="interes" value="3"> Deportes</label>
-     		    <label><input type="checkbox" name="interes" value="4"> Videojuegos</label>
-     		    <label><input type="checkbox" name="interes" value="5"> Música</label>
-     		    <label><input type="checkbox" name="interes" value="6"> Series</label>
-     		    <label><input type="checkbox" name="interes" value="7"> Programación</label>
-     		    <label><input type="checkbox" name="interes" value="8"> Fotografía</label>
-     		    <label><input type="checkbox" name="interes" value="9"> Pintura</label>
-     		    <label><input type="checkbox" name="interes" value="10"> Baile</label>
+     		    <label><input type="checkbox" name="interes" value="Lectura"> Lectura</label>
+     		    <label><input type="checkbox" name="interes" value="Cine"> Cine</label>
+     		    <label><input type="checkbox" name="interes" value="Deportes"> Deportes</label>
+     		    <label><input type="checkbox" name="interes" value="Videojuegos"> Videojuegos</label>
+     		    <label><input type="checkbox" name="interes" value="Música"> Música</label>
+     		    <label><input type="checkbox" name="interes" value="Series"> Series</label>
+     		    <label><input type="checkbox" name="interes" value="Programación"> Programación</label>
+     		    <label><input type="checkbox" name="interes" value="Fotografía"> Fotografía</label>
+     		    <label><input type="checkbox" name="interes" value="Pintura"> Pintura</label>
+     		    <label><input type="checkbox" name="interes" value="Baile"> Baile</label>
             
      		<br> <br>
             <input type="submit" value="Registrarse">   
