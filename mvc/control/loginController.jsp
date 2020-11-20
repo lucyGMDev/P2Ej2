@@ -6,7 +6,7 @@
 <%
 
     String nextPage= "../../index.jsp";
-    String messageNextPage="mensaje inicial";
+    String messageNextPage="";
 
     String email=request.getParameter("email");
     String contraseña=request.getParameter("password");
@@ -17,19 +17,22 @@
             ContactoDAO contactoDAO = new ContactoDAO(dataBasePath);
             Contacto contact = contactoDAO.ObtenerContactoById(email);
             if(contact!=null){//El contacto existe
-                String contraseña_usuario=contactoDAO.ObtenerPasswordUsuario(email);
+                String contraseña_usuario=contactoDAO.ObtenerPasswordUsuario(contact.getEmail());
                 if(contraseña_usuario.equals(contraseña)){
 %> 
                     <jsp:setProperty property="email" value="<%=email%>" name="customerBean"/>
                     <jsp:setProperty property="contraseña" value="<%=contraseña%>" name="customerBean"/>
-                    messageNextPage="El usuario con email "+email+" existe";
+                    <jsp:setProperty property="nombre" value="<%=contact.getName()%>" name="customerBean"/>
+                    <jsp:setProperty property="apellidos" value="<%=contact.getLastName()%>" name="customerBean"/>
+                    <jsp:setProperty property="fechaNacimiento" value="<%=contact.getBirthDate()%>" name="customerBean"/>
+                    <jsp:setProperty property="intereses" value="<%=contact.getTagsLists()%>" name="customerBean"/>
 <%
                 }else{
-                    //nextPage="../view/loginView.jsp";
-                    messageNextPage="La contraseña es incorrecta";
+                    nextPage="../view/loginView.jsp";
+                    messageNextPage="La contraseña es incorrecta</br>";
                 }                
             }else{
-                nextPage="../../index.jsp";
+                nextPage="../view/loginView.jsp";
                 messageNextPage="No existe ningun contacto con email "+email;
             }
         }else{

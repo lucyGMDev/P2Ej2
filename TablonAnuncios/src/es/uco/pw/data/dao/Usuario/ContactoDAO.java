@@ -169,27 +169,28 @@ public class ContactoDAO extends DAO {
 
     public String ObtenerPasswordUsuario(String email){
         String ret ="";
+       
         try{
-            
             Connection conect = getConection();
             
             Properties sqlProp = new Properties();
           
             InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
-            PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("obtenerContraseña.Usuario"));
+            PreparedStatement ps = conect.prepareStatement(sqlProp.getProperty("getPassword.Usuario"));
             ps.setString(1, email);
             ResultSet rs=ps.executeQuery();
                  
-            while(rs.next()){
-                ret=rs.getString(1);                
-            }
+            rs.next();
+            ret=rs.getString(1);                
+         
             
-           
         }catch(Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
+        
+        
         return ret;
     }
     

@@ -13,12 +13,21 @@
         <h1>Este es el INDEX</h1>
         <%
             String message = request.getParameter("message");
+            if(message!=""){
         %>
-        <%= message %>
+            <p><%= message %></p>
+            
         <%
+            }
             if(customerBean!=null && !customerBean.getEmail().equals("")){
         %>
-            Desde el CustomerBean: <%=customerBean.getEmail()%>
+                Desde el CustomerBean: </br>
+                Email: <%=customerBean.getEmail()%></br>
+                Contraseña: <%=customerBean.getContraseña()%></br>
+                Nombre: <%=customerBean.getNombre()%></br>
+                Apellidos: <%=customerBean.getApellidos()%></br>
+                Fecha: <%=customerBean.getFechaNacimiento()%></br>
+                Lista Intereses: <%=customerBean.getIntereses()%></br>
         <%
             }
         %>
