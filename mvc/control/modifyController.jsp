@@ -4,7 +4,7 @@
 
 <% 
     String nextPage="../../index.jsp";
-    string
+    String messageNextPage="";
     if(customerBean!=null && customerBean.getEmail()!=""){
 
     }else{

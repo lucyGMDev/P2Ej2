@@ -13,7 +13,7 @@
         <h1>Este es el INDEX</h1>
         <%
             String message = request.getParameter("message");
-            if(message!=""){
+            if(message!=null){
         %>
             <p><%= message %></p>
             
