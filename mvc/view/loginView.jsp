@@ -4,7 +4,7 @@
 
 <html lang="es">
     <head>
-        <title>Inicio de sesión</title>
+        <title>Inicio de sesi&oacute;n</title>
         <meta charset="UTF-8"/>
         <style>
         label{
@@ -22,7 +22,7 @@
             <label for="password">Contrase&ntilde;a</label>
             <input type="password" name="password" size="50" required>
      		<br> <br>
-            <input type="submit" value="Iniciar sesión">   
+            <input type="submit" value="Iniciar sesi&oacute;n">   
           
         </form>
           
