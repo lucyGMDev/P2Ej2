@@ -43,14 +43,14 @@
 <%
                 }else{
                     messageNextPage="Las contraseñas no coinciden";
-                    //nextPage="../view/signUpView.jsp";
+                    nextPage="../view/signUpView.jsp";
                 }
             }else{
                 messageNextPage="Ya hay un usuario con el email introducido";
-                //nextPage="../view/signUpView.jsp";   
+                nextPage="../view/signUpView.jsp";   
             }
         }else{
-           // nextPage="../view/signUpView.jsp";
+            nextPage="../view/signUpView.jsp";
         }
     }
 %>
