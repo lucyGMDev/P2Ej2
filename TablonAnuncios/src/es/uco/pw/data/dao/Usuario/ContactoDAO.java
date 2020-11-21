@@ -20,7 +20,7 @@ public class ContactoDAO extends DAO {
     public ContactoDAO(String sqlPropertiesPath){
         super(sqlPropertiesPath);
     }
-    public int InsertarContacto(ContactoDTO contact){
+    public int InsertarContacto(ContactoDTO contact,String password){
         int status=0;
         try{
             Connection conect = getConection();
@@ -44,11 +44,19 @@ public class ContactoDAO extends DAO {
             ps.setString(5, intereses);
             
             status = ps.executeUpdate();
+
+            PreparedStatement psContraseña = conect.prepareStatement(sqlProp.getProperty("insertar.Password"));
+            psContraseña.setString(1, contact.getEmail());
+            psContraseña.setString(2, password);
+            status=psContraseña.executeUpdate();
+
         }catch(Exception e){
             e.printStackTrace();
         }
         return status;
     }
+
+   
 
     public int BorrarContacto(Contacto contact){
         int status=0;

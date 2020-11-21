@@ -7,7 +7,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <title>Control de Usuarios</title>
+        <meta charset="UTF-8"/>
     </head>
     <body>
         <h1>Bienvenido</h1>
@@ -18,8 +19,6 @@
             <p><%= message %></p>
             
         <%
-
-
 
 
             }
@@ -36,7 +35,7 @@
             }
         %>
 
-          <input type="button" onclick="location.href='mvc/view/loginView.jsp';" value="Iniciar sesión" />
+          <input type="button" onclick="location.href='/mvc/view/loginView.jsp';" value="Iniciar sesión" />
           <input type="button" onclick="location.href='mvc/view/signUpView.jsp';" value="Registrarse" />
         
     </body>
