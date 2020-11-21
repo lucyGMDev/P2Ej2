@@ -7,10 +7,9 @@
 <% 
     String nextPage="../../index.jsp";
     String messageNextPage="";
+    String dataBasePath=application.getInitParameter("AbsolutePath")+application.getInitParameter("sqlProperties");
     if(customerBean!=null && customerBean.getEmail()!=""){
         String email =customerBean.getEmail();
-        
-        String dataBasePath="/opt/tomcat/latest/webapps/ControlContactos/WEB-INF/sql.properties";
         ContactoDAO contactoDAO=new ContactoDAO(dataBasePath);
         Contacto contact = contactoDAO.ObtenerContactoById(email);
         if(contact!=null){            

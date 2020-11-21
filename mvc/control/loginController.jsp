@@ -7,13 +7,14 @@
 
     String nextPage= "../../index.jsp";
     String messageNextPage="";
-
-    String email=request.getParameter("email");
+    String dataBasePath=application.getInitParameter("AbsolutePath")+application.getInitParameter("sqlProperties");
+    String email=request.getParameter("Email");
     String contraseña=request.getParameter("password");
 
     if(customerBean== null || customerBean.getEmail().equals("")){
         if(email!=null){
-            String dataBasePath="/opt/tomcat/latest/webapps/ControlContactos/WEB-INF/sql.properties";
+           
+            
             ContactoDAO contactoDAO = new ContactoDAO(dataBasePath);
             Contacto contact = contactoDAO.ObtenerContactoById(email);
             if(contact!=null){//El contacto existe
@@ -37,9 +38,9 @@
             }
         }else{
             nextPage="../view/loginView.jsp";
+            messageNextPage="Contacto no valido: "+email;
         }
     }
-
 %>
 
 <jsp:forward page="<%=nextPage%>">

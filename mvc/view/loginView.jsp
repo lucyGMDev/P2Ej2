@@ -1,7 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-
-
-
 <html lang="es">
     <head>
         <title>Inicio de sesi&oacute;n</title>
@@ -14,7 +14,7 @@
         </style>
     </head>
     <body>
-
+       
         <form action="../control/loginController.jsp" method="post">
         	<label for="Email">Email</label>
             <input type="text" name="Email" size="50" required>
