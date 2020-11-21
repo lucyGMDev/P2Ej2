@@ -75,7 +75,7 @@ public class ContactoDAO extends DAO {
         return status;
     }
 
-    public int ModificarContacto(Contacto contact){
+    public int ModificarContacto(ContactoDTO contactoDTO){
         int status=0;
         try{
             Connection conect = getConection();
@@ -83,20 +83,20 @@ public class ContactoDAO extends DAO {
             InputStream is = new FileInputStream(sqlPropertiesPath);
             sqlProp.load(is);
             PreparedStatement ps= conect.prepareStatement(sqlProp.getProperty("modificar.contacto"));
-            ps.setString(1, contact.getName());
-            ps.setString(2, contact.getLastName());
-            java.sql.Date birthDate = new java.sql.Date(contact.getBirthDate().getTime());
+            ps.setString(1, contactoDTO.getName());
+            ps.setString(2, contactoDTO.getLastName());
+            java.sql.Date birthDate = new java.sql.Date(contactoDTO.getBirthDate().getTime());
             ps.setDate(3, birthDate);
             String intereses="";
             
-            for(String interes : contact.getTagsLists()){
+            for(String interes : contactoDTO.getTagsLists()){
                 interes+=interes.toLowerCase()+",";
             }
-            if(contact.getTagsLists().size()>0){
+            if(contactoDTO.getTagsLists().size()>0){
                 intereses=intereses.substring(0,intereses.length()-1);
             }
             ps.setString(4, intereses);
-            ps.setString(5, contact.getEmail());
+            ps.setString(5, contactoDTO.getEmail());
 
             ps.executeUpdate();
         }catch(Exception e){
